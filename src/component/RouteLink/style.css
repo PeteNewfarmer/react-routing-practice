@@ -1,0 +1,14 @@
+.link {
+    padding: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+.link:hover {
+    background-color: rgb(210, 210, 210);
+}
+
+.link.selected {
+    background-color: rgb(184, 184, 184);
+}
