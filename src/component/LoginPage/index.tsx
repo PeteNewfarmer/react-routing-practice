@@ -27,6 +27,7 @@ export class LoginPage extends React.Component<LoginPageProps, LoginPageState> {
         if (this.state.username == 'admin' && this.state.password == 'admin') {
             this.props.onLoginSuccess()
             this.props.history.push("/home")
+            sessionStorage.setItem("isLoggedIn", "true")
         } else {
             this.setState({ errorMessage: "Wrong username or password" })
         }

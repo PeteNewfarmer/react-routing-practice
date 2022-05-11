@@ -15,8 +15,10 @@ class Routing extends React.Component<RoutingProps, RoutingState> {
     constructor(props: RoutingProps) {
         super(props)
 
+        const isLoginFromSession = sessionStorage.getItem("isLoggedIn") === "true"
+
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: isLoginFromSession
         }
     }
 
@@ -38,6 +40,7 @@ class Routing extends React.Component<RoutingProps, RoutingState> {
                     <Route
                         render={(routeProps) => {
                             this.setState({ isLoggedIn: false })
+                            sessionStorage.setItem("isLoggedIn", "false")
                             return <LoginPage onLoginSuccess={this.handleLoginSuccess} {...routeProps} />
                         }}
                         path="/logout"
